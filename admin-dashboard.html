@@ -1,0 +1,119 @@
+<!-- admin-dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f1f1f1;
+      margin: 0;
+    }
+
+    header {
+      background-color: #5c6c41;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+
+    nav a {
+      background: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: #33472ced;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #5c6c41;
+    }
+
+    .navbar {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 12px;
+    }
+     .hero {
+      background: linear-gradient(120deg, #efefed, #efefed);
+      color: rgb(21, 20, 20);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero button {
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      background-color: white;
+      color: #5c6c41;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .hero button:hover {
+      background-color: #f2f3f2;
+      color: white;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: calc(100vh - 130px);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <h1 style="flex: 1; text-align: center;">Admin Dashboard</h1>
+    <button onclick="logout()" style="background: white; color: red; font-weight: bold; border: none; padding: 10px 20px; border-radius: 10px; margin-right: 20px; cursor: pointer;">Logout</button>
+  </div>
+  <nav>
+    <a href="user-dashboard.html" target="adminContent">Users</a>
+    <a href="invitations.html" target="adminContent">Invitations</a>
+    <a href="quiz-questions.html" target="adminContent">Quiz Questions</a>
+    <a href="quiz-results.html" target="adminContent">Quiz Results</a>
+  </nav>
+</header>
+
+
+<section class="hero">
+  <h2 id="studentName" style="margin-bottom: 10px;">Welcome , Admin </h2>
+</section>
+
+<script>
+
+  function logout() {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    localStorage.removeItem("sdgUser");
+    window.location.href = "index.html"; // or "admin-login.html" if preferred
+  }
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SDG 14 – Life Below Water</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Comic+Neue&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fredoka', sans-serif;
+      background: linear-gradient(to bottom right, #ffffff, #ffffff);
+      color: #333;
+    }
+
+    .cgt-text {
+      position: absolute;
+      top: 20px;
+      right: 15px;
+      text-align: right;
+      font-family: Arial, sans-serif;
+      z-index: 1000;
+    }
+
+    .cgt-main {
+      font-size: 2.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #000;
+    }
+
+    .cgt-sub {
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: #333;
+      letter-spacing: 0.5px;
+    }
+
+    .header-container {
+      background-color: #0288d1;
+      padding: 40px 20px;
+      text-align: center;
+      color: #ffffff;
+      border-radius: 0 0 30px 30px;
+      max-width: 900px;
+      margin: 0 auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-container h1 {
+      font-size: 2.8rem;
+      margin: 0;
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    .header-container p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      font-family: 'Comic Neue', cursive;
+    }
+
+    .mission-box {
+      background-color: #b3e5fc;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 85%;
+      margin: 40px auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border: 3px dotted #4fc3f7;
+    }
+
+    .mission-box h2 {
+      color: #01579b;
+      font-family: 'Comic Neue', cursive;
+    }
+
+    .mission-box ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .mission-box li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .mission-box li::before {
+      content: "🌊 ";
+      font-size: 1.2rem;
+    }
+
+    .fact-card {
+      background: #81d4fa;
+      color: #01579b;
+      margin: 30px auto;
+      max-width: 700px;
+      padding: 20px 30px;
+      border-radius: 20px;
+      font-size: 1.3rem;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      font-family: 'Comic Neue', cursive;
+    }
+
+    .media-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin: 50px auto;
+      max-width: 90%;
+    }
+
+   .media-container video {
+      max-width: 600px;
+      width: 200%;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      border: 5px solid #ffffff;
+    }
+    .media-container img {
+      max-width: 680px;
+      width: 150%;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      border: 5px solid #ffffff;
+    }
+    .quiz-section {
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .quiz-section a {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      background-color: #4fc3f7;
+      color: #01579b;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      transition: background-color 0.3s ease, transform 0.2s;
+      font-family: 'Comic Neue', cursive;
+    }
+    .corner-logos {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.logo-left{
+  width: 200px;     /* ✅ Resize the image */
+  height: auto;
+  object-fit: contain;
+}
+.logo-right {
+  width: 200px;     /* ✅ Resize the image */
+  height: auto;
+  object-fit: contain;
+}
+
+    .quiz-section a:hover {
+      background-color: #039be5;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .header-container h1 {
+        font-size: 2.2rem;
+      }
+
+      .media-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="corner-logos">
+    <img src="images/srmap.png" alt="Left Logo" class="logo-left">
+    <img src="images/CGTLogo.png" alt="Right Logo" class="logo-right">
+  </div>
+
+  <div class="header-container">
+    <h1>SDG 14: Life Below Water</h1>
+    <p>Conserve and sustainably use the oceans, seas and marine resources.</p>
+  </div>
+
+  <div class="media-container">
+        <img src="images/SDG14.png" alt="Life Below Water Illustration">
+
+    <video controls autoplay muted>
+      <source src="videos/SDG14AI.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="mission-box">
+    <h2>Marine Protection Goals</h2>
+    <ul>
+      <li>Prevent and significantly reduce marine pollution</li>
+      <li>Protect and restore coastal and marine ecosystems</li>
+      <li>Regulate harvesting, end overfishing and illegal fishing</li>
+      <li>Minimize ocean acidification and its impacts</li>
+      <li>Enhance marine science and ocean-related technology</li>
+    </ul>
+  </div>
+
+  <div class="fact-card">
+    💡 Did You Know? Over 3 billion people depend on marine biodiversity for their livelihood.
+  </div>
+
+  <div class="quiz-section">
+    <a href="goals.html">⬅ Back</a>
+    <a href="sdg15.html">Next ➡</a>
+  </div>
+
+  <script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="vrvuGmFlnTuosDUkTai6y"
+    domain="www.chatbase.co"
+    defer>
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

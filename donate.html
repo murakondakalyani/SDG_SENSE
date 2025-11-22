@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page Title</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f9f9f9;
+      color: #222;
+    }
+
+    header {
+      background: #3e4d25;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      color: #f9f9f9;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      background: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: #2e7d32;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #5c6c41;
+    }
+
+    .contribute-flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .contribute-left p {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .contribute-left img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .contribute-right p {
+      margin: 20px 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .contribute-right button {
+      background-color: #5c6c41;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .contribute-right button:hover {
+      background-color: #5c6c41;
+    }
+    .contribute-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px; /* Increased for better spacing */
+  padding: 50px 20px;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 40px auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.contribute-left, .contribute-right, .or-divider {
+  text-align: center;
+}
+
+.scan-label {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+}
+.back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #3e4d25;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .back-button:hover {
+      background: #5c6c41;
+    }
+
+.qr-img {
+  max-width: 220px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.or-divider p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+}
+
+.contribute-btn {
+  background-color: #5c6c41;
+  color: white;
+  padding: 14px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contribute-btn:hover {
+  background-color: #5c6c41;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="dashboard.html" style="color: white; text-decoration: none;">SENSE</a></h1>
+    <nav>
+      <a href="projects.html">About the Project</a>
+      <a href="services.html">Our Network</a>
+      <a href="tools.html">Tools</a>
+      <a href="team.html">Team</a>
+      <a href="donate.html">Contribute</a>
+      <a href="contact.html">Contact</a>
+      <a href="invite.html">Invite</a>
+    </nav>
+  </header>
+
+  <main style="text-align:center; padding: 100px 20px 40px;">
+    <h2>Contribute to the attainment of SDG's</h2>
+    <p>We’ll Pick It Up</p>
+  </main>
+
+  <div class="contribute-flex">
+  <!-- Left: QR code -->
+  <div class="contribute-left">
+    <p class="scan-label">Scan here</p>
+    <img src="images/SENSEQR.png" alt="QR Code to Schedule Pickup" class="qr-img" />
+  </div>
+
+  <!-- Middle: "Or" text -->
+  <div class="or-divider">
+    <p>Or</p>
+  </div>
+
+  <!-- Right: Contribute button -->
+  <div class="contribute-right">
+    <a href="https://arcg.is/1CmOn2" target="_blank" style="text-decoration: none;">
+      <button class="contribute-btn">📍 Click Here to Contribute</button>
+    </a>
+  </div>
+  <a href="dashboard.html" class="back-button">Back to Dashboard</a>
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

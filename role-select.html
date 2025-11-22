@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Role | SENSE SDG</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f1f9ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      margin-bottom: 30px;
+      color: #5c6c41;
+    }
+    .role-btn {
+      padding: 15px 30px;
+      margin: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background-color: #5c6c41;
+      color: white;
+      transition: all 0.3s;
+    }
+    .role-btn:hover {
+      background-color: #42522d;
+    }
+  </style>
+</head>
+<body>
+  <h1>Who are you?</h1>
+  <button class="role-btn" onclick="location.href='admin-login.html'">I'm Admin</button>
+  <button class="role-btn" onclick="location.href='login.html'">I'm a Student</button>
+  <a href="index.html" class="role-btn">Back</a>
+</body>
+</html>

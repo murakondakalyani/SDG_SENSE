@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meet the Team | SENSE SDG</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f9f9f9;
+      color: #222;
+    }
+
+    header {
+      background: #3e4d25;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      color: #f9f9f9;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      background: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: #22390df2;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #5c6c41
+    }
+
+    .team-image {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Top centered section */
+    .team-top {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    .team-top img {
+      margin-bottom: 20px;
+    }
+
+    /* Grid for other members */
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 20px;
+    }
+
+    .team-member {
+      max-width: 250px;
+      text-align: center;
+    }
+
+    .team-member img {
+      margin-bottom: 15px;
+    }
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #3e4d25;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .back-button:hover {
+      background: #5c6c41;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="dashboard.html" style="color: white; text-decoration: none;">SENSE</a></h1>
+    <nav>
+      <a href="projects.html">About the Project</a>
+      <a href="services.html">Our Network</a>
+      <a href="tools.html">Tools</a>
+      <a href="team.html">Team</a>
+      <a href="donate.html">Donate</a>
+      <a href="contact.html">Contact</a>
+      <a href="invite.html">Invite</a>
+    </nav>
+  </header>
+  <main>
+    <!-- Top center member -->
+    <section class="team-grid">
+      <div >
+      <img src="images/harish.jpg" alt="Team Member" class="team-image" />
+      <h2>Harish Puppala</h2>
+      <p>Principal Investigator (Project SENSE)</p>
+      <p>Coordinator, Centre for Geospatial Technology</p>
+      <p>Assistant Professor, Department of Civil Engineering</p>
+      </div>
+    </section>
+    <!-- Remaining team in grid -->
+    <section class="team-grid">
+
+      <div class="team-member">
+        <img src="images/kalyani.jpg" alt="Team Member" class="team-image" />
+        <h2>Kalyani Murakonda</h2>
+        <p>Dept of Computer Science</p>
+        <p>SRM University AP</p>
+      </div>
+
+      <div class="team-member">
+        <img src="images/swetha.jpg" alt="Team Member" class="team-image" />
+        <h2>Keerthana</h2>
+        <p>Dept of Computer Science</p>
+        <p>SRM University AP</p>
+      </div>
+
+      <div class="team-member">
+        <img src="images/team4.jpg" alt="Team Member" class="team-image" />
+        <h2>Sai Kiran</h2>
+        <p>Dept of Computer Science</p>
+        <p>SRM University AP</p>
+      </div>
+
+      <div class="team-member">
+        <img src="images/keerthana.jpg" alt="Team Member" class="team-image" />
+        <h2>Swetha Madhuri</h2>
+        <p>Dept of Civil Engineering</p>
+        <p>SRM University AP</p>
+
+      </div>
+    </section>
+      <a href="dashboard.html" class="back-button">Back to Dashboard</a>
+  </main> 
+  <script src="script.js"></script>
+</body>
+</html>

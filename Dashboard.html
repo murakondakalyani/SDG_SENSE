@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SENSE Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f9f9f9;
+      color: #222;
+    }
+
+    header {
+      background: #3e4d25;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      background: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: #33472ced;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #5c6c41;
+    }
+
+    .hero {
+      background: linear-gradient(120deg, #5c6c41, #5c6c41);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero button {
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      background-color: white;
+      color: #5c6c41;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .hero button:hover {
+      background-color: #5c6c41;
+      color: white;
+    }
+
+    
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #5c6c41;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .logout-btn {
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      background-color: #c62828;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .navbar {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+}
+
+.goal-image-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(33, 150, 243, 0.3);
+}
+:root {
+  --float-gap: 15px;
+  --float-right: 25px;
+  --float-left: 25px;
+  --bubble-size: 60px;
+}
+
+/* Chatbase bubble – keep on right */
+#chatbase-bubble-button,
+iframe[src*="chatbase"] {
+  bottom: var(--float-gap) !important;
+  right: var(--float-right) !important;
+  z-index: 99999;
+}
+
+  .whatsapp-btn {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  right: auto;
+  background-color: #5c6c41;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 99999;
+}
+
+
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="projects.html">About the Project</a>
+      <a href="services.html">Our Network</a>
+      <a href="tools.html">Tools</a>
+      <a href="team.html">Team</a>
+      <a href="donate.html">Donate</a>
+      <a href="contact.html">Contact</a>
+      <a href="invite.html">Invite</a>
+
+          <button onclick="logout()" style="background: white; color: red; font-weight: bold; border: none; padding: 10px 20px; border-radius: 10px; margin-right: 20px; cursor: pointer;">Logout</button>
+
+    </nav>
+
+  </header>
+
+  <section class="hero">
+  <h2 id="studentName" style="margin-bottom: 10px;">Welcome , Student !</h2>
+  
+  <button onclick="location.href='goals.html'"> SENSE SDG's</button>
+</section>
+
+   <script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="vrvuGmFlnTuosDUkTai6y"
+    domain="www.chatbase.co"
+    defer>
+  </script>
+
+  <a href="https://wa.me/7981863124?text=Hi%20I%20need%20assistance%20regarding%20the%20SDG%20dashboard" class="whatsapp-btn" target="_blank">
+    💬 Chat on WhatsApp
+  </a>
+
+
+ <div style="display: flex; align-items: center; justify-content: center; gap: 20px; padding: 30px 0; background-color: white;">
+  <img src="images/srmap.png" alt="SRM AP Logo" style="height: 150px;">
+  
+  <!-- X mark -->
+  <span style="font-size: 40px; font-weight: bold; color: black;">×</span>
+  
+  <div style="text-align: center;">
+    <img src="images/CGTLogo.png" alt="CGT Logo" style="height: 350px;"><br>
+
+
+<script>
+  // Display logged-in user's name
+  const user = JSON.parse(localStorage.getItem("sdgUser"));
+  if (user) {
+    const displayName = user.fullName || user.username || "Student";
+    document.getElementById("studentName").innerText = `Welcome, ${displayName}!`;
+  }
+
+  function logout() {
+    localStorage.removeItem("sdgSession");
+    localStorage.removeItem("sdgUser");
+    location.href = "login.html";
+  }
+</script>
+
+</body>
+</html>

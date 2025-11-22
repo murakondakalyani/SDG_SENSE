@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Dashboard</title>
+  <style>
+    /* Add/replace in <style> section for a clean admin look */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #eaf6ff;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  background-color: #5c6c41;
+  color: white;
+  padding: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+nav a {
+  background: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: #33472ced;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s;
+}
+
+nav a:hover {
+  background: #5c6c41;
+  color: #fff;
+}
+
+.dashboard {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 16px rgba(0,0,0,0.08);
+  max-width: 600px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.dashboard h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+th {
+  background: #eaf6ff;
+  font-weight: 600;
+  color: #333;
+}
+
+.logout {
+  background: #1976d2;
+  color: #fff;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.logout:hover
+  </style>
+</head>
+<body>
+  <header>
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <h1 style="flex: 1; text-align: center;">Admin Dashboard</h1>
+    <button onclick="logout()" style="background: white; color: red; font-weight: bold; border: none; padding: 10px 20px; border-radius: 10px; margin-right: 20px; cursor: pointer;">Logout</button>
+  </div>
+  <nav>
+    <a href="user-dashboard.html" target="adminContent">Users</a>
+    <a href="invitations.html" target="adminContent">Invitations</a>
+    <a href="quiz-questions.html" target="adminContent">Quiz Questions</a>
+    <a href="quiz-results.html" target="adminContent">Quiz Results</a>
+  </nav>
+</header>
+  <!-- ...existing code... -->
+<div class="dashboard">
+  <h1>Registered Users</h1>
+  <table style="width:100%; margin-top:20px; border-collapse:collapse;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>School</th>
+        <th>Grade</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody id="usersList"></tbody>
+  </table>
+  
+</div>
+
+<script>
+  // Remove user role check for listing users
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const usersList = document.getElementById("usersList");
+
+  users.forEach(u => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${u.fullName}</td>
+      <td>${u.schoolName}</td>
+      <td>${u.classGrade}</td>
+      <td>${u.role}</td>
+    `;
+    usersList.appendChild(row);
+  });
+
+  
+
+  function logout() {
+    localStorage.clear();
+    window.location.href = "login.html";
+  }
+</script>
+
+
+  
+</body>
+</html>

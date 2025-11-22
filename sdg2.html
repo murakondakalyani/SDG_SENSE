@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mission: Zero Hunger – SDG 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Comic+Neue&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fredoka', sans-serif;
+      background: linear-gradient(to bottom, #ffffff, #fff3e0);
+      color: #333;
+    }
+
+    .cgt-text {
+      position: absolute;
+      top: 20px;
+      right: 15px;
+      text-align: right;
+      font-family: Arial, sans-serif;
+      z-index: 1000;
+    }
+
+    .cgt-main {
+      font-size: 2.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #000;
+    }
+
+    .cgt-sub {
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: #333;
+      letter-spacing: 0.5px;
+    }
+
+    .header-container {
+      background-color: #fbc02d;
+      padding: 40px 20px;
+      text-align: center;
+      color: #3e2723;
+      border-radius: 0 0 30px 30px;
+      max-width: 900px;
+      margin: 0 auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-container h1 {
+      font-size: 2.8rem;
+      margin: 0;
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    .header-container p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      font-family: 'Comic Neue', cursive;
+    }
+
+    .mission-box {
+      background-color: #fffde7;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 85%;
+      margin: 40px auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border: 3px dotted #ffb74d;
+    }
+
+    .mission-box h2 {
+      color: #e65100;
+      font-family: 'Comic Neue', cursive;
+    }
+
+    .mission-box ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .mission-box li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .mission-box li::before {
+      content: "🌾 ";
+      font-size: 1.2rem;
+    }
+
+    .fact-card {
+      background: #ffe0b2;
+      color: #5d4037;
+      margin: 30px auto;
+      max-width: 700px;
+      padding: 20px 30px;
+      border-radius: 20px;
+      font-size: 1.3rem;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      font-family: 'Comic Neue', cursive;
+    }
+
+    .media-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin: 50px auto;
+      max-width: 90%;
+    }
+
+     .media-container video {
+      max-width: 600px;
+      width: 200%;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      border: 5px solid #ffffff;
+    }
+    .media-container img {
+      max-width: 550px;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      border: 5px solid #ffffff;
+    }
+
+    .quiz-section {
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .quiz-section a {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      background-color: #fdd835;
+      color: #e65100;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      transition: background-color 0.3s ease, transform 0.2s;
+      font-family: 'Comic Neue', cursive;
+    }
+
+    .quiz-section a:hover {
+      background-color: #fbc02d;
+      transform: scale(1.05);
+    }
+    .corner-logos {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.logo-left{
+  width: 200px;     /* ✅ Resize the image */
+  height: auto;
+  object-fit: contain;
+}
+.logo-right {
+  width: 200px;     /* ✅ Resize the image */
+  height: auto;
+  object-fit: contain;
+}
+
+    @media (max-width: 768px) {
+      .header-container h1 {
+        font-size: 2.2rem;
+      }
+
+      .media-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="corner-logos">
+    <img src="images/srmap.png" alt="Left Logo" class="logo-left">
+    <img src="images/CGTLogo.png" alt="Right Logo" class="logo-right">
+  </div>
+
+  <div class="header-container">
+    <h1>SDG 2: Zero Hunger</h1>
+    <p>Ensure everyone has access to safe and nutritious food all year round.</p>
+  </div>
+
+  <div class="media-container">
+    <img src="images/SDG2.png" alt="Zero Hunger Illustration">
+    <video controls autoplay muted>
+      <source src="videos/SDG2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="mission-box">
+    <h2>Actions that Matter</h2>
+    <ul>
+      <li>Provide nutritious food to all – especially infants, women, and the elderly</li>
+      <li>Support eco-friendly farming practices</li>
+      <li>Double the income of small-scale farmers</li>
+      <li>Invest in sustainable food systems</li>
+      <li>Strengthen food preservation and food security policies</li>
+    </ul>
+  </div>
+
+  <div class="fact-card">
+    💡 Did You Know? Nearly 1 in 10 people still face hunger every day. Ending hunger is possible with your help!
+  </div>
+
+
+  <div class="quiz-section">
+    <a href="goals.html">⬅ Back</a>
+    <a href="sdg3.html">Next ➡</a>
+  </div>
+  <script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="vrvuGmFlnTuosDUkTai6y"
+    domain="www.chatbase.co"
+    defer>
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

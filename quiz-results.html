@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz Results | Admin Dashboard</title>
+  <style>
+     body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #5c6c41;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+
+    nav a {
+      background: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: #33472ced;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #5c6c41;
+    }
+
+    .navbar {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 12px;
+    }
+     .hero {
+  background: linear-gradient(120deg, #efefed, #f4f4f4);
+  padding: 30px 20px;
+  min-height: calc(100vh - 140px);
+}
+
+
+    h2{
+      color: #2a391b;
+    }
+
+
+    h1 {
+      color: #ecefe9;
+    }
+      .card {
+  padding: 12px;
+  border-radius: 8px;
+  background: #fefefe;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card-title {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.card-content {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+    .result-card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    }
+
+    .goal {
+      font-weight: bold;
+      color: #3e4d25;
+    }
+
+    .score {
+      color: #4caf50;
+      font-weight: bold;
+    }
+
+    .meta {
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <h1 style="flex: 1; text-align: center;">Admin Dashboard</h1>
+    <button onclick="logout()" style="background: white; color: red; font-weight: bold; border: none; padding: 10px 20px; border-radius: 10px; margin-right: 20px; cursor: pointer;">Logout</button>
+  </div>
+  <nav>
+    <a href="user-dashboard.html" target="adminContent">Users</a>
+    <a href="invitations.html" target="adminContent">Invitations</a>
+    <a href="quiz-questions.html" target="adminContent">Quiz Questions</a>
+    <a href="quiz-results.html" target="adminContent">Quiz Results</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div style="max-width: 900px; margin: auto;">
+  <h2>📊 Quiz Results</h2>
+  <div id="resultsContainer"></div>
+
+  <script>
+    const token = localStorage.getItem("token");
+
+    async function fetchResults() {
+      const res = await fetch("http://localhost:5000/api/quiz/all", {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      });
+
+      const container = document.getElementById("resultsContainer");
+
+      if (!res.ok) {
+        container.innerHTML = "<p>❌ Failed to load results.</p>";
+        return;
+      }
+
+      const results = await res.json();
+
+      if (!results.length) {
+        container.innerHTML = "<p>No quiz attempts yet.</p>";
+        return;
+      }
+
+      results.forEach(result => {
+        const div = document.createElement("div");
+        div.className = "result-card";
+        div.innerHTML = `
+          <div class="goal">🟢 Goal ${result.goal}</div>
+          <div class="score">Score: ${result.score}</div>
+          <div class="meta">
+          👤 ${result.userId?.fullName || 'Unknown'} (${result.userId?.username || 'ID: ' + result.userId})<br />
+          🏫 ${result.userId?.schoolName || 'N/A'}<br />
+          ⏰ ${new Date(result.timestamp).toLocaleString()}
+          </div>
+
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    fetchResults();
+     function logout() {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      window.location.href = "../index.html";
+    }
+  </script>
+
+</body>
+</html>

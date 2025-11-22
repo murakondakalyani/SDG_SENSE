@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Invitations | Admin Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #5c6c41;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+
+    nav a {
+      background: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: #33472ced;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #5c6c41;
+    }
+
+    .navbar {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 12px;
+    }
+     .hero {
+  background: linear-gradient(120deg, #efefed, #f4f4f4);
+  padding: 30px 20px;
+  min-height: calc(100vh - 140px);
+}
+
+
+    h2{
+      color: #2a391b;
+    }
+
+
+    h1 {
+      color: #ecefe9;
+    }
+      .card {
+  padding: 12px;
+  border-radius: 8px;
+  background: #fefefe;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card-title {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.card-content {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+
+
+    .invite-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .invite-card strong {
+      display: inline-block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .field-label {
+      font-weight: bold;
+      margin-top: 8px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <h1 style="flex: 1; text-align: center;">Admin Dashboard</h1>
+    <button onclick="logout()" style="background: white; color: red; font-weight: bold; border: none; padding: 10px 20px; border-radius: 10px; margin-right: 20px; cursor: pointer;">Logout</button>
+  </div>
+  <nav>
+    <a href="user-dashboard.html" target="adminContent">Users</a>
+    <a href="invitations.html" target="adminContent">Invitations</a>
+    <a href="quiz-questions.html" target="adminContent">Quiz Questions</a>
+    <a href="quiz-results.html" target="adminContent">Quiz Results</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div style="max-width: 900px; margin: auto;">
+
+  <h2>📨 Invitations Received</h2>
+  <div id="invitesContainer"></div>
+
+  <script>
+    const token = localStorage.getItem("token");
+
+    async function fetchInvitations() {
+      const res = await fetch("http://localhost:5000/api/invite", {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      });
+
+      const invitesContainer = document.getElementById("invitesContainer");
+
+      if (!res.ok) {
+        invitesContainer.innerHTML = "<p>❌ Unable to fetch invitations.</p>";
+        return;
+      }
+
+      const invites = await res.json();
+
+      if (invites.length === 0) {
+        invitesContainer.innerHTML = "<p>No invitations submitted yet.</p>";
+        return;
+      }
+
+      invites.forEach(invite => {
+        const card = document.createElement("div");
+        card.className = "invite-card";
+        card.innerHTML = `
+          <strong>${invite.schoolName}</strong>
+          <div><span class="field-label">Contact Person:</span> ${invite.contactName}</div>
+          <div><span class="field-label">Email:</span> ${invite.email}</div>
+          <div><span class="field-label">Phone:</span> ${invite.phone}</div>
+          <div><span class="field-label">Message:</span> ${invite.message}</div>
+        `;
+        invitesContainer.appendChild(card);
+      });
+    }
+
+    fetchInvitations();
+     function logout() {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      window.location.href = "../index.html";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome | SDG Dashboard</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .top-buttons {
+      position: absolute;
+      top: 20px;
+      left: 40px;
+      z-index: 10;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-button {
+      padding: 10px 18px;
+      background-color: #5c6c41; /* Dark green */
+      color: white;
+      font-weight: bold;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-button:hover {
+      background-color: #5c6c41;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .logo-right {
+      position: absolute;
+      top: 10px;
+      right: 70px;
+      z-index: 9;
+    }
+
+    .logo-image {
+      height: 100px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .cgt-logo-wrapper {
+      position: absolute;
+      top: 170px;
+      right: 280px;
+      z-index: 9;
+    }
+
+    .cgt-logo {
+      height: 300px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .sense-footer {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #5c6c41;
+      z-index: 5;
+    }
+  </style>
+</head>
+<body class="landing-page">
+  <div class="home-bg">
+
+    <!-- Top navigation buttons -->
+    <div class="top-buttons">
+      <a href="aboutsense.html" class="nav-button">About SENSE</a>
+      <a href="contactus.html" class="nav-button">Contact Us</a>
+      <a href="inviteus.html" class="nav-button">Invite Us</a>
+    </div>
+
+    <!-- SRM Logo top-right -->
+    <div class="logo-right">
+      <img src="images/srmap.png" alt="SRM Logo" class="logo-image">
+    </div>
+
+    <!-- CGT Logo centered-ish -->
+    <div class="cgt-logo-wrapper">
+      <img src="images/CGTLogo.png" alt="CGT Logo" class="cgt-logo">
+    </div>
+
+    <!-- Explore Button -->
+    <button class="explore-fixed-btn" onclick="handleExplore()">SENSE SDG's</button>
+  </div>
+
+  <div class="sense-footer">
+    SENSE - School Engagement for Nurturing SDG Education
+  </div>
+
+  <script>
+  function handleExplore() {
+    // Go to role selection page
+    window.location.href = "role-select.html";
+  }
+
+  // Auto-redirect if already logged in
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (user?.role === "admin") {
+    window.location.href = "admin-dashboard.html";
+  } else if (user?.role === "user") {
+    window.location.href = "user-dashboard.html";
+  }
+</script>
+
+</body>
+</html>

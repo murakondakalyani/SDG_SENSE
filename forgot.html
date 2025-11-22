@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forgot Password</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f2f2;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    h2, h3 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .message {
+      color: #5c6c41;
+      font-weight: 500;
+    }
+
+    .error {
+      color: red;
+      font-weight: 500;
+    }
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #3e4d25;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .back-button:hover {
+      background: #5c6c41;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Forgot Password</h2>
+  <form id="forgotForm">
+    <input type="email" id="forgotEmail" placeholder="Enter your registered email" required>
+    <button type="submit">Check Account</button>
+  </form>
+
+  <div id="resetSection" style="display:none;">
+    <h3>Enter New Password</h3>
+    <input type="password" id="newPassword" placeholder="New password" required>
+    <button id="resetBtn">Reset Password</button>
+  </div>
+
+  <p id="responseMessage" class="message"></p>
+  <a href="login.html" class="back-button">Back</a>
+</div>
+
+<script>
+  const forgotForm = document.getElementById("forgotForm");
+  const resetSection = document.getElementById("resetSection");
+  const responseMessage = document.getElementById("responseMessage");
+
+  let foundUserIndex = -1;
+
+  forgotForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("forgotEmail").value.trim();
+    const users = JSON.parse(localStorage.getItem("sdgUsers")) || [];
+
+    foundUserIndex = users.findIndex(u => u.email === email);
+
+    if (foundUserIndex >= 0) {
+      responseMessage.textContent = "Account found! You can now reset your password.";
+      responseMessage.className = "message";
+      resetSection.style.display = "block";
+    } else {
+      responseMessage.textContent = "No account found with that email.";
+      responseMessage.className = "error";
+      resetSection.style.display = "none";
+    }
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    const newPassword = document.getElementById("newPassword").value.trim();
+
+    if (!newPassword) {
+      responseMessage.textContent = "Password cannot be empty.";
+      responseMessage.className = "error";
+      return;
+    }
+
+    const users = JSON.parse(localStorage.getItem("sdgUsers"));
+    users[foundUserIndex].password = newPassword;
+    localStorage.setItem("sdgUsers", JSON.stringify(users));
+
+    alert("Password reset successfully! Redirecting to login page.");
+    window.location.href = "login.html";
+  });
+</script>
+
+</body>
+</html>

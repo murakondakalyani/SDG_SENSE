@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Login</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+    }
+
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #5c6c41;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #3e4d25;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-box">
+  <h2>Admin Login</h2>
+  <input type="text" id="username" placeholder="Admin Username" required>
+  <input type="password" id="password" placeholder="Password" required>
+  <button onclick="loginAdmin()">Login</button>
+  <div id="error" class="error"></div>
+</div>
+
+<script>
+  function loginAdmin() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    // 🔐 Hardcoded admin credentials
+    const hardcodedUsername = "admin_sdg";
+    const hardcodedPassword = "admin@1234"; // You can change this
+
+    if (username === hardcodedUsername && password === hardcodedPassword) {
+      const adminUser = {
+        fullName: "Admin",
+        username: "admin_sdg",
+        role: "admin"
+      };
+      localStorage.setItem("user", JSON.stringify(adminUser));
+      localStorage.setItem("token", "admin-token");
+      window.location.href = "admin-dashboard.html";
+    } else {
+      document.getElementById("error").textContent = "Incorrect admin credentials";
+    }
+  }
+</script>
+
+</body>
+</html>

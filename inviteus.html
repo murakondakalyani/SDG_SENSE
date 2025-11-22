@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invite Us - SENSE</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f9f9f9;
+      color: #222;
+    }
+
+    header {
+      background: #3e4d25;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      background: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: #5c6c41;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #5c6c41;
+    }
+
+    main {
+      padding: 60px 20px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #3e4d25;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .back-button:hover {
+      background: #5c6c41;
+    }
+
+    .invite-container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .invite-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #5c6c41;
+    }
+
+    .invite-description {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
+
+    form input,
+    form button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    form input:focus {
+      outline: none;
+      border-color: #5c6c41;
+    }
+
+    
+.center-back {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+    .invite-btn {
+      background: #5c6c41;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .invite-btn:hover {
+      background: #5c6c41;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="index.html" style="color: white; text-decoration: none;">SENSE</a></h1>
+    
+  </header>
+
+  <div class="center-back">
+  <a href="index.html" class="back-button">Back</a>
+</div>
+
+  <main>
+    <div class="invite-container">
+      <h2>Invite Us to Your Institution</h2>
+      <p class="invite-description">
+        Fill in the form below to invite our team to your school/institution and create awareness about the 17 Sustainable Development Goals.
+      </p>
+
+<form id="inviteForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <input type="text" name="institute" placeholder="Institute / School Name" required>
+        <input type="text" name="location" placeholder="Location" required>
+
+        <!-- Hidden fields -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="New Invite Request from SDG Website">
+
+        <button type="submit" class="invite-btn">Invite Us</button>
+      </form>
+      <a href="index.html" class="back-button">Back</a>
+    </div>
+  </main>
+  <script>
+  document.getElementById("inviteForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const data = {
+      name: this.name.value,
+      email: this.email.value,
+      phone: this.phone.value,
+      institute: this.institute.value,
+      location: this.location.value
+    };
+
+    fetch("http://localhost:5000/api/invite/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(result => {
+      alert("✅ Invite submitted successfully!");
+      this.reset();
+    })
+    .catch(err => alert("❌ Failed to submit invite: " + err.message));
+  });
+</script>
+
+</body>
+</html>

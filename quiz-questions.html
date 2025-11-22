@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz Questions | Admin Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #5c6c41;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+
+    nav a {
+      background: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: #33472ced;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #5c6c41;
+    }
+
+    .navbar {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 12px;
+    }
+     .hero {
+  background: linear-gradient(120deg, #efefed, #f4f4f4);
+  padding: 30px 20px;
+  min-height: calc(100vh - 140px);
+}
+
+
+    h2{
+      color: #2a391b;
+    }
+
+
+    h1 {
+      color: #ecefe9;
+    }
+      .card {
+  padding: 12px;
+  border-radius: 8px;
+  background: #fefefe;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card-title {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.card-content {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+    .goal-section {
+      margin-bottom: 40px;
+    }
+
+    .goal-section h2 {
+      border-left: 6px solid #5c6c41;
+      padding-left: 12px;
+      color: #3b4d24;
+    }
+
+    .question-box {
+      background: white;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin: 10px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .question {
+      font-weight: bold;
+    }
+
+    .answer {
+      color: #4caf50;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <h1 style="flex: 1; text-align: center;">Admin Dashboard</h1>
+    <button onclick="logout()" style="background: white; color: red; font-weight: bold; border: none; padding: 10px 20px; border-radius: 10px; margin-right: 20px; cursor: pointer;">Logout</button>
+  </div>
+  <nav>
+    <a href="user-dashboard.html" target="adminContent">Users</a>
+    <a href="invitations.html" target="adminContent">Invitations</a>
+    <a href="quiz-questions.html" target="adminContent">Quiz Questions</a>
+    <a href="quiz-results.html" target="adminContent">Quiz Results</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div style="max-width: 900px; margin: auto;">
+  <h2>📝 Quiz Questions by SDG Goal</h2>
+  <div id="questionsContainer"></div>
+
+  <script>
+    const quizzes = {
+      "1": [
+    {
+      "q": "Which habit best supports long-term poverty reduction?",
+      "options": [
+        "Sharing verified information on livelihood schemes",
+        "Encouraging participation in skill-development workshops",
+        "Purchasing products sold by marginalised groups",
+        "Donating useful learning materials to community spaces"
+      ],
+      "correct": "Encouraging participation in skill-development workshops"
+    },
+    {
+      "q": "Which habit most directly helps reduce hunger in communities?",
+      "options": [
+        "Participating in community food-sharing platforms",
+        "Practising kitchen-garden cultivation",
+        "Spreading tips on safe food preservation",
+        "Encouraging mindful consumption at events"
+      ],
+      "correct": "Practising kitchen-garden cultivation"
+    },
+    {
+      "q": "Which habit best promotes holistic health?",
+      "options": [
+        "Maintaining regular exercise and balanced diet routines",
+        "Joining community wellness activities",
+        "Sharing credible health-awareness information",
+        "Encouraging regular mental-health check-ins"
+      ],
+      "correct": "Maintaining regular exercise and balanced diet routines"
+    },
+    {
+      "q": "Which behaviour best strengthens learning for those lacking support?",
+      "options": [
+        "Volunteering as a tutor or mentor",
+        "Sharing open-source digital learning links",
+        "Encouraging reading-circle participation",
+        "Supporting peers in career-guidance activities"
+      ],
+      "correct": "Volunteering as a tutor or mentor"
+    },
+    {
+      "q": "Which habit contributes most to everyday gender equality?",
+      "options": [
+        "Encouraging equal participation in decision-making",
+        "Supporting girls’ involvement in various activities",
+        "Speaking up against gender-biased statements",
+        "Sharing stories of successful women leaders"
+      ],
+      "correct": "Encouraging equal participation in decision-making"
+    },
+    {
+      "q": "Which behaviour best conserves household water sustainably?",
+      "options": [
+        "Regulating tap flow while performing daily activities",
+        "Collecting rainwater for non-potable purposes",
+        "Reporting leakages in shared facilities",
+        "Using less chemically intensive cleaning materials"
+      ],
+      "correct": "Regulating tap flow while performing daily activities"
+    },
+    {
+      "q": "Which habit most effectively supports clean-energy transition?",
+      "options": [
+        "Participating in community solar-energy information sessions",
+        "Motivating neighbours to install rooftop solar options.",
+        "Joining local renewable-energy demonstration campaigns.",
+        "Learning to calculate personal household carbon footprint"
+      ],
+      "correct": "Motivating neighbours to install rooftop solar options."
+    },
+    {
+      "q": "Which behaviour most strengthens ethical and productive work culture?",
+      "options": [
+        "Encouraging fair-workplace practices",
+        "Developing professional skills continuously",
+        "Supporting local entrepreneurship",
+        "Participating in productivity-improvement events"
+      ],
+      "correct": "Developing professional skills continuously"
+    },
+    {
+      "q": "Which habit best promotes innovation culture?",
+      "options": [
+        "Engaging in hands-on problem-solving activities",
+        "Participating in maker/innovation clubs",
+        "Learning digital and technical skills",
+        "Sharing successful innovation case studies"
+      ],
+      "correct": "Engaging in hands-on problem-solving activities"
+    },
+    {
+      "q": "Which habit most strongly reduces structural inequality?",
+      "options": [
+        "Encouraging inclusive decision-making",
+        "Supporting participation of marginalised individuals in events",
+        "Promoting equal access to digital resources",
+        "Learning about rights-based frameworks"
+      ],
+      "correct": "Encouraging inclusive decision-making"
+    },
+    {
+      "q": "Which behaviour most supports sustainable community living?",
+      "options": [
+        "Participating in neighbourhood planning committees",
+        "Using public or shared mobility whenever practical",
+        "Supporting community heritage and cultural activities",
+        "Maintaining safe, clean local spaces"
+      ],
+      "correct": "Using public or shared mobility whenever practical"
+    },
+    {
+      "q": "Which behaviour best aligns with mindful consumption?",
+      "options": [
+        "Planning purchases to avoid unnecessary buying",
+        "Reusing items before replacing",
+        "Choosing products with minimal packaging",
+        "Supporting repair and upcycling initiatives"
+      ],
+      "correct": "Planning purchases to avoid unnecessary buying"
+    },
+    {
+      "q": "Which habit most significantly reduces climate impact?",
+      "options": [
+        "Using low-carbon transport choices when possible",
+        "Participating in climate awareness events",
+        "Practising waste segregation responsibly",
+        "Supporting plantation and greening drives"
+      ],
+      "correct": "Using low-carbon transport choices when possible"
+    },
+    {
+      "q": "Which behaviour best protects aquatic ecosystems?",
+      "options": [
+        "Avoiding single-use plastics in daily routines",
+        "Participating in clean-waterbody campaigns",
+        "Sharing marine-protection awareness content",
+        "Supporting responsible seafood sourcing"
+      ],
+      "correct": "Avoiding single-use plastics in daily routines"
+    },
+    {
+      "q": "Which habit most directly supports terrestrial biodiversity?",
+      "options": [
+        "Participating in native-species plantation drives",
+        "Supporting community composting",
+        "Sharing biodiversity education material",
+        "Joining local habitat-restoration visits"
+      ],
+      "correct": "Participating in native-species plantation drives"
+    },
+    {
+      "q": "Which behaviour best strengthens peaceful and fair communities?",
+      "options": [
+        "Resolving conflicts through dialogue and mediation",
+        "Sharing verified information to prevent rumours",
+        "Participating in civic-responsibility events",
+        "Encouraging non-violent communication practices"
+      ],
+      "correct": "Resolving conflicts through dialogue and mediation"
+    },
+    {
+      "q": "Which habit most strongly builds SDG-focused collaboration?",
+      "options": [
+        "Participating in multi-stakeholder SDG events or projects",
+        "Sharing SDG-related opportunities across networks",
+        "Coordinating skill-based volunteer groups",
+        "Promoting cross-disciplinary problem solving"
+      ],
+      "correct": "Participating in multi-stakeholder SDG events or projects"
+    }
+  ]
+    };
+
+    const questionsContainer = document.getElementById("questionsContainer");
+
+    for (let goal in quizzes) {
+      const section = document.createElement("div");
+      section.className = "goal-section";
+
+      const heading = document.createElement("h2");
+      heading.textContent = `Quiz`;
+      section.appendChild(heading);
+
+      quizzes[goal].forEach((item, index) => {
+        const qBox = document.createElement("div");
+        qBox.className = "question-box";
+        qBox.innerHTML = `
+          <div class="question">Q${index + 1}: ${item.q}</div>
+          <div class="answer">✔ Correct Answer: ${item.correct}</div>
+        `;
+        section.appendChild(qBox);
+      });
+
+      questionsContainer.appendChild(section);
+    }
+     function logout() {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      window.location.href = "../index.html";
+    }
+  </script>
+
+</body>
+</html>
